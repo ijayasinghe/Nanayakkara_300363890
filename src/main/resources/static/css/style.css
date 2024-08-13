@@ -1,0 +1,12 @@
+p{
+    text-align: center;
+    font-size: x-large;
+    color: cornflowerblue;
+}
+.seatClass{
+    border: 2px solid white;
+}
+body{
+    background-color: darkcyan;
+    color: white;
+}

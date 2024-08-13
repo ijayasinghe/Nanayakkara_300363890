@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--  <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="template1">-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--    the template1 styles and scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384- KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384- ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384- JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384- JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+    <!-----------ends here------------->
+
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        .pre-scrollable {
+            height: 500px;
+            overflow-y: scroll;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<section layout:fragment="content">
+    <!--<section>-->
+
+    <div class="container mt-2 pre-scrollable">
+        <div class="card-header"></div>
+        <div class="card-body">
+<!--            <form method="get" th:action="@{index}">-->
+<!--                <label>Key Word</label>-->
+<!--                <input type="text" name="keyword">-->
+<!--                <button type="submit" class="btn btn-primary">Search</button>-->
+<!--                <button type="submit" class="btn btn-primary">See All</button>-->
+<!--            </form>-->
+            <h1> Seat Reservation System</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="p:${rowList}">
+
+                    <td th:text="${p.getName1()}" ></td>
+                    <td th:text="${p.getName2()}"></td>
+                    <td th:text="${p.getName3()}"></td>
+                    <td th:text="${p.getName4()}"></td>
+                    <td th:text="${p.getName5()}"></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <h1 th:text="'There are '+ ${availableSeats} + ' remaining seats'"> placeholder</h1>
+
+
+    <div>
+        <form method="post" th:action="@{reserve}">
+            <div>
+                <label>Seat Code</label>
+                <input class="form-control" type="text" name="seatNo">
+
+            </div>
+            <div>
+                <label>Customer Name</label>
+                <input class="form-control" type="text" name="customerName">
+            </div>
+
+            <div>
+                <label>Transaction Date: </label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+
+            <button type="submit" class="btn-primary">Reserve</button>
+        </form>
+    </div>
+
+</section>
+</body>
+
+</html>
